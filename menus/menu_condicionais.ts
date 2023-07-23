@@ -9,9 +9,6 @@ import { vermelho, verde, amarelo,
 
 const prompt = promptSync();
 
-let exercicio:number
-let input:string
-
 function opcoes():void {
 	console.log(verde
 		+ "\n1 = Calcula acréscimo de 10% em valores menores que 1000"
@@ -35,19 +32,19 @@ function asciiArtConditionals():void {
 }
 
 export function condicionaisUm():void {
-	let numero:number
+	let exercicio:number
+	let input:string
 
 	asciiArtConditionals()
 	opcoes();
 	do {
-		numero = 0
 		comandos()
 		input = prompt(mensagemCor(roxo, mensagemCor(amarelo,
 			"Informe o numero do exercicio (1 a 6): ")) + roxo)		
 		exercicio = parseFloat(input)		
 		if (input == "op")
 			opcoes()
-		else if (!isNaN(numeroValidacao(parseFloat(input))) && exercicio != 0)
+		else if (!isNaN(exercicio) && exercicio != 0)
 		{
 			switch (exercicio) {
 				case 1:

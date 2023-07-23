@@ -1,7 +1,9 @@
 import promptSync from "prompt-sync"
+import { exit } from "process";
 
 import { condicionaisUm } from "./menus/menu_condicionais";
-import { exit } from "process";
+import { condicionaisDois } from "./menus/menu_condicionais_dois";
+import { loopings } from "./menus/menu_loopings";
 
 const prompt = promptSync();
 
@@ -44,16 +46,18 @@ export function comandos():void {
 
 function asciiArtMenu():void {
 	console.log(azul
-	+ "\n$$\\      $$\\     "
-	+ "\n$$$\\    $$$ |   "
-	+ "\n$$$$\\  $$$$ | $$$$$$\\  $$$$$$$\\  $$\\   $$\\ "
-	+ "\n$$\\$$\\$$ $$ |$$  __$$\\ $$  __$$\\ $$ |  $$ |"
-	+ "\n$$\\$$\\$$ $$ |$$  __$$\\ $$  __$$\\ $$ |  $$ |"
+	+ "\n /$$$$$$$$                             /$$$$$$                      /$$             /$$    "
+	+ "\n|__  $$__/                            /$$__  $$                    |__/            | $$    "
+	+ "\n   | $$ /$$   /$$  /$$$$$$   /$$$$$$ | $$  \__/  /$$$$$$$  /$$$$$$  /$$  /$$$$$$  /$$$$$$  "
+	+ "\n   | $$| $$  | $$ /$$__  $$ /$$__  $$|  $$$$$$  /$$_____/ /$$__  $$| $$ /$$__  $$|_  $$_/  "
+	+ "\n   | $$| $$  | $$| $$  \\ $$| $$$$$$$$ \\____  $$| $$      | $$  \\__/| $$| $$  \\ $$  | $$    "
+	+ "\n   | $$| $$  | $$| $$  | $$| $$_____/ /$$  \\ $$| $$      | $$      | $$| $$  | $$  | $$ /$$"
+	+ "\n   | $$|  $$$$$$$| $$$$$$$/|  $$$$$$$|  $$$$$$/|  $$$$$$$| $$      | $$| $$$$$$$/  |  $$$$/"
 	+ roxo
-	+ "\n$$ \\$$$  $$ |$$$$$$$$ |$$ |  $$ |$$ |  $$ |"
-	+ "\n$$ |\\$  /$$ |$$   ____|$$ |  $$ |$$ |  $$ |"
-	+ "\n$$ | \\_/ $$ |\\$$$$$$$\\ $$ |  $$ |\\$$$$$$  |"
-	+ "\n\\__|     \\__| \\_______|\\__|  \\__| \\______/ \n")
+	+ "\n   |__/ \\____  $$| $$____/  \\_______/ \\______/  \\_______/|__/      |__/| $$____/    \\___/  "
+	+ "\n        /$$  | $$| $$                                                  | $$                "
+	+ "\n       |  $$$$$$/| $$                                                  | $$                "
+	+ "\n        \\______/ |__/                                                  |__/                \n")
 }
 
 function opcoesAtividades():void {
@@ -86,10 +90,10 @@ do {
 				condicionaisUm()
 				break;
 			case 2:
-				// conditionalsDois()
+				condicionaisDois()
 				break;
 			case 3:
-				// loopings()
+				loopings()
 				break;
 			default:
 				break;
