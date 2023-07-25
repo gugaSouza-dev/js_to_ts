@@ -9,6 +9,14 @@ import { vermelho, verde, amarelo,
 
 const prompt = promptSync();
 
+function stringValidacao(str: string):string {
+	if (!str) {
+		console.log(mensagemCor(vermelho, "Valor vazio não aceito."));
+		return ("")
+	}
+	return (str)
+}
+
 function opcoes():void {
 	console.log(verde
 		+ "\n1 = Calcula acréscimo de 10% em valores menores que 1000"
@@ -31,9 +39,11 @@ function asciiArtConditionals():void {
 	
 }
 
+
 export function condicionaisUm():void {
 	let exercicio:number
 	let input:string
+	let numero:number
 
 	asciiArtConditionals()
 	opcoes();
@@ -48,21 +58,68 @@ export function condicionaisUm():void {
 		{
 			switch (exercicio) {
 				case 1:
-					salarioAcrescimoDez()
+					let nome:string
+					let cargo:string
+					let salarioBase:number
+				
+					console.log(verde + "\nCalcula acréscimo de 10% em valores menores que 1000\n");
+				
+					nome = stringValidacao(prompt(mensagemCor(amarelo, "Digite seu nome: ") + roxo))
+					if (nome == null)
+						break;
+					cargo = stringValidacao(prompt(mensagemCor(amarelo, "Digite seu cargo: ") + roxo))
+					if (cargo == null)
+						break;
+					salarioBase = numeroValidacao(parseFloat(prompt(
+						mensagemCor(amarelo, "Digite seu salario: ") + roxo)))
+					if (isNaN(salarioBase))
+						break;
+
+					salarioAcrescimoDez(nome, cargo, salarioBase)
 					break;
 				case 2:
-					salarioAcrescidoTrinta()
+					let salario:number
+
+					console.log(verde + "\nCheca se um valor receberá um acréscimo ou não. ");
+					input = prompt(mensagemCor(amarelo, "Digite seu salario: ") + roxo)
+					salario = numeroValidacao(parseFloat(input))
+					if (isNaN(salario))
+						break;
+					salarioAcrescidoTrinta(salario)
 					break;
 			
 				case 3:
-					positivoOuNegativo()
+					console.log(verde + "\nCheca se o seu numero é negativo, positivo ou neutro. ");
+					input = prompt(mensagemCor(amarelo, "Digite um numero: ") + roxo)
+					numero = numeroValidacao(parseFloat(input))
+					if (isNaN(numero))
+						break;
+					positivoOuNegativo(numero)
 					break;
-				case 4:
-					imparOuPar()
+
+				case 4:		
+					console.log(verde + "\nCheca se um numero é par ou impar. ");
+					input = prompt(mensagemCor(amarelo, "Digite um numero: ") + roxo)
+					numero = numeroValidacao(parseFloat(input))
+					if (isNaN(numero))
+						break;
+					imparOuPar(numero)
 					break;
 			
 				case 5:
-					maiorValor()
+					let numeroUm:number
+					let numeroDois:number
+				
+					console.log(verde + "\nAvalia qual é o maior entre dois numeros ");
+					input = prompt(mensagemCor(amarelo, "Digite o primeiro numero: ") + roxo)
+					numeroUm = numeroValidacao(parseInt(input))
+					if (isNaN(numeroUm))
+						break;
+					input = prompt(mensagemCor(amarelo, "Digite o segundo numero: ") + roxo)
+					numeroDois = numeroValidacao(parseFloat(input))
+					if (isNaN(numeroDois))
+						break;
+					maiorValor(numeroUm, numeroDois)
 					break;
 			
 				case 6:

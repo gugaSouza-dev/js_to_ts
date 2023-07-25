@@ -8,14 +8,6 @@ import { vermelho, verde, amarelo,
 const prompt = promptSync();
 let input:string
 
-function stringValidacao(str: string):string {
-	if (!str) {
-		console.log(mensagemCor(vermelho, "Valor vazio não aceito."));
-		return ("")
-	}
-	return (str)
-}
-
 function notaValidacao(mensagem:string):number {
     let nota:number
 	nota = parseFloat(prompt(mensagem))
@@ -40,7 +32,7 @@ function mediaCalculator(notas:any):void {
 		console.log(vermelho + `Média: ${media}. Aluno reprovado.`)
 }
 
-export function salarioAcrescimoDez():number {
+export function salarioAcrescimoDez(nome:string, cargo:string, salarioBase:number):number {
 	/*
 	Exercício 1:
 	Faça um programa que receba o nome, cargo e salário de um
@@ -48,23 +40,7 @@ export function salarioAcrescimoDez():number {
 	salário acrescido de 10%. Ao final exiba o nome, o cargo e o salário
 	desse funcionário.
 	*/
-	let nome:string
-	let cargo:string
-	let salarioBase:number
 	let salarioAcrescido:number
-
-	console.log(verde + "\nCalcula acréscimo de 10% em valores menores que 1000\n");
-
-	nome = stringValidacao(prompt(mensagemCor(amarelo, "Digite seu nome: ") + roxo))
-	if (nome == null)
-		return (-1)
-	cargo = stringValidacao(prompt(mensagemCor(amarelo, "Digite seu cargo: ") + roxo))
-	if (cargo == null)
-		return (-1)
-	salarioBase = numeroValidacao(parseFloat(prompt(
-		mensagemCor(amarelo, "Digite seu salario: ") + roxo)))
-	if (isNaN(salarioBase))
-		return (-1)
 
 	if (salarioBase < 1000) {
 		salarioAcrescido = salarioBase + (salarioBase / 10)
@@ -80,7 +56,7 @@ export function salarioAcrescimoDez():number {
     return (0)
 }
 
-export function salarioAcrescidoTrinta():number {
+export function salarioAcrescidoTrinta(salario:number):number {
 	/*
 	Exercício 2
 	Uma empresa decide dar aumento de 30% aos funcionários cujo
@@ -88,14 +64,7 @@ export function salarioAcrescidoTrinta():number {
 	salário de um funcionário e imprima o valor do salário reajustado ou
 	uma mensagem caso o funcionário não tenha direito a aumento.
 	*/
-	let salario:number
 
-	console.log(verde + "\nCheca se um valor receberá um acréscimo ou não. ");
-
-	input = prompt(mensagemCor(amarelo, "Digite seu salario: ") + roxo)
-	salario = numeroValidacao(parseFloat(input))
-	if (isNaN(salario))
-		return (-1)
 	if (salario < 500) {
 		salario += salario / 30
 		console.log(ciano + "Seu salario foi reajustado para: " + roxo + salario.toFixed(2) + ".")
@@ -105,22 +74,12 @@ export function salarioAcrescidoTrinta():number {
     return (0)
 }
 
-export function positivoOuNegativo():number {
+export function positivoOuNegativo(numero:number):number {
 	/*
 	Exercício 3
 	Faça um programa que receba um número inteiro do usuário e informe
 	se este número é positivo ou negativo.
 	*/
-
-    let input:string
-    let numero: number
-	console.log(verde + "\nCheca se o seu numero é negativo, positivo ou neutro. ");
-
-	input = prompt(mensagemCor(amarelo, "Digite um numero: ") + roxo)
-	numero = numeroValidacao(parseFloat(input))
-	if (isNaN(numero))
-		return (-1)
-
 	if (numero < 0)
 		console.log(ciano + "Seu numero é negativo.")
 	else if (numero > 0)
@@ -130,21 +89,13 @@ export function positivoOuNegativo():number {
 	return (-1)
 }
 
-export function imparOuPar():number {
+export function imparOuPar(numero:number):number {
 	/*
 	Exercício 4
 	Faça um programa que receba um número do usuário e informe
 	se este número é par ou ímpar.
 	*/
 	let restante:number
-    let input:string
-    let numero:number
-
-	console.log(verde + "\nCheca se um numero é par ou impar. ");
-	input = prompt(mensagemCor(amarelo, "Digite um numero: ") + roxo)
-    numero = numeroValidacao(parseFloat(input))
-	if (isNaN(numero))
-		return (-1)
 
 	restante = numero % 2
 
@@ -155,26 +106,12 @@ export function imparOuPar():number {
     return (0)
 }
 
-export function maiorValor():number {
+export function maiorValor(numeroUm:number, numeroDois:number):number {
 	/*
 	Exercício 5
 	Faça um programa receba dois valores e imprima qual é o maior
 	número digitado.
 	*/
-	let numeroUm:number
-	let numeroDois:number
-    let input:string
-
-	console.log(verde + "\nAvalia qual é o maior entre dois numeros ");
-
-	input = prompt(mensagemCor(amarelo, "Digite o primeiro numero: ") + roxo)
-    numeroUm = numeroValidacao(parseInt(input))
-	if (isNaN(numeroUm))
-		return (-1)
-	input = prompt(mensagemCor(amarelo, "Digite o segundo numero: ") + roxo)
-	numeroDois = numeroValidacao(parseFloat(input))
-	if (isNaN(numeroDois))
-		return (-1)
 	if (numeroUm > numeroDois)
 		console.log(ciano + `Seu numero maior é: ` + roxo + `${numeroUm}.`)
 	else if
