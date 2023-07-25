@@ -15,8 +15,6 @@ export const roxo:string = '\u001b[' + 35 + ';1m'
 export const ciano:string = '\u001b[' + 36 + ';1m'
 export const reset:string = '\x1b[0m'
 
-let opcao:number
-
 export function mensagemCor(cor:string, mensagem:string):string {
 	return (cor + mensagem + reset);
 }
@@ -67,22 +65,20 @@ function opcoesAtividades():void {
 		\n3 = Exercicios de Loopings\n"));
 }
 
+let opcao:number
+
+asciiArtMenu()
 do {
-	asciiArtMenu()
+
 	opcoesAtividades();
 	console.log(mensagemCor(ciano, "Para sair, digite:" + roxo + " 0" + reset))
 	opcao = parseInt(prompt(mensagemCor(amarelo, 
 		"Escolha um conjunto de exercícios: ") + roxo))
 	opcao = numeroValidacao(opcao)
-	// if (opcao == 666){
-
-	// 	s̸͇̫͈̳̓̎́̒̏̈́͒͗͘͠t̴̡̢̞̪̫̫̤̦̳̻͚̦̭̾̄͒͂̃͂͛̈̉̒̒͜ǎ̷̧̛̛̺̮̞̪̲͈̝̓͂̈̏́͊͐́̂̀͠͠ͅn̷͎̙̈̌̊͗̂̀̆̀̄̕()
-		
-	// }
-	if (opcao > 3 || opcao < 0)
-		console.log(mensagemCor(vermelho, "Conjunto não encontrado.\nInforme um numero de 1 a 3."));
-	else if (opcao.toString() == "op")
+	if (opcao.toString() == "op")
 		opcoesAtividades()
+	else if (opcao == 0)
+		break;
 	else if (!isNaN(opcao))
 	{
 		switch (opcao) {
@@ -96,8 +92,8 @@ do {
 				loopings()
 				break;
 			default:
+				console.log(mensagemCor(vermelho, "Conjunto não encontrado.\nInforme um numero de 1 a 3."));
 				break;
 			}
-		console.log(verde + "Fim." + reset);
 	}
 } while (opcao);
