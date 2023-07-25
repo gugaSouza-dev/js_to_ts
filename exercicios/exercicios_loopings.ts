@@ -4,7 +4,6 @@ import { mensagemCor, numeroValidacao } from "../main";
 //CORES
 import { vermelho, verde, amarelo,
 		azul, roxo } from "../main";
-import { parse } from "path";
 
 const prompt = promptSync();
 
@@ -75,17 +74,20 @@ export function fibonacci():void {
 	/*
 	5. Imprimir os primeiros 10 números da sequência de Fibonacci.
 	*/
+	let t1:number = 0
+    let t2:number = 1
+    let fibonacci:number = t1 + t2
+
 	console.log(verde + "Sequência de Febonacci");
-	let t1 = 0, t2 = 1, fibonacci = t1 + t2
 	for (let i = 2; i <= 9; i++){
 		if (t1 == 0){
 			fiboPosicao(t1, 1);
-	fiboPosicao(t2, 2);
-	}
-	fiboPosicao(fibonacci, i+1);
-	t1 = t2
-	t2 = fibonacci
-	fibonacci = t1 + t2
+			fiboPosicao(t2, 2);
+		}
+		fiboPosicao(fibonacci, i+1);
+		t1 = t2
+		t2 = fibonacci
+		fibonacci = t1 + t2
 	}
 }
 
@@ -104,7 +106,6 @@ export function zeroAVinte():void {
 		numero++
 	}
 	console.log(mensagemCor(azul, numeros.toString()));
-
 }
 
 export function somaUmACem():void {
